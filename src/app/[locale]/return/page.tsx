@@ -1,9 +1,11 @@
 "use client";
 import Divider from "@/components/divider";
+import { unstable_setRequestLocale } from "next-intl/server";
 import { useSearchParams  } from "next/navigation";
+import React, { Suspense } from "react";
 import { useEffect, useState } from "react";
 
-export default function Return() {
+function ReturnPage(){
     const session_id = useSearchParams().get("session_id");
     const [success, setSuccess] = useState<boolean|null>(null);
     fetch(`http://localhost:5000/session_status?session_id=${session_id}`).then((res) => {
@@ -53,6 +55,14 @@ export default function Return() {
             {display()}
         <Divider/>
     </div>
+    );
+}
+
+export default function Return({params: {locale}} : {params: {locale: string}}) {
+    return (
+        <Suspense>
+            <ReturnPage/>
+        </Suspense>
     );
 }
 

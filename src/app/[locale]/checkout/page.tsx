@@ -2,16 +2,16 @@
 import Divider from '@/components/divider';
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import { useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY||"");
 
-export default function Checkout() {
+function CheckoutPage(){
     const priceID = useSearchParams().get("price_id");
-    console.log(priceID);
     const fetchClientSecret = useCallback(() => {
         // Create a Checkout Session
         return fetch("http://localhost:5000/create-checkout-session", {
@@ -28,7 +28,6 @@ export default function Checkout() {
     const options = {
         fetchClientSecret
     };
-
     return (
         <div className="main_content_div">
             <Divider/>
@@ -39,5 +38,13 @@ export default function Checkout() {
                 </div>
             <Divider/>
         </div>
+    );
+}
+
+export default function Checkout({params: {locale}} : {params: {locale: string}}) {
+    return (
+        <Suspense>
+            <CheckoutPage/>
+        </Suspense>
     );
 }

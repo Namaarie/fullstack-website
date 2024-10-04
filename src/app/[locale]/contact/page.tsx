@@ -10,8 +10,8 @@ import { firestore } from "@/components/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 // convert browser component to client component
-export const MapComponent = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {ssr: false});
-export const MapTileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {ssr: false});
+//export const MapComponent = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {ssr: false});
+//export const MapTileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {ssr: false});
 
 type Message = {
     name: String,
@@ -197,7 +197,8 @@ export default function Contact() {
             </div>
             <Divider/>
                 <div className="h-[600px] w-1/2 mx-auto p-8">
-                    <MapComponent
+                    {
+                    /*<MapComponent
                         center={[51.505, -0.09]}
                         zoom={10}
                         zoomControl={false}
@@ -210,6 +211,7 @@ export default function Contact() {
                         </Suspense>
 
                     </MapComponent>
+                    */}
                 </div>
             <Divider/>
         </div>
