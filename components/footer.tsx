@@ -6,7 +6,12 @@ export default function Footer({messages, params: {locale}} : {messages: IntlMes
     const pathname = usePathname();
     const router = useRouter();
     const swapLocale = () => {
-        router.replace(pathname, {locale: locale == "en" ? "fr" : "en"});
+        if (pathname == "/checkout") {
+            return;
+        } else {
+            router.replace(pathname, {locale: locale == "en" ? "fr" : "en"});
+        }
+        
     }
 
     return (

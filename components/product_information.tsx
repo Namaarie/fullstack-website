@@ -1,3 +1,8 @@
+import { get } from 'aws-amplify/api';
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from '@/src/amplifyconfiguration.json';
+Amplify.configure(amplifyconfig);
+
 class ProductDisplay {
     price_to_decimal(price: number): string {
         // price is integer representing cents
@@ -22,6 +27,24 @@ class ProductDisplay {
     }
 
     async get_products(start: Number, amount: Number): Promise<ProductWithID[]> {
+        try {
+            const restOperation = get({
+                apiName: "api",
+                path: "/getproducts",
+                options: {
+                    queryParams: {
+                        start: start.toString(),
+                        amount: amount.toString()
+                    }
+                }
+            });
+            const response = await restOperation.response;
+            const products = await response.body.json();
+            console.log(products);
+            //return products;
+        } catch (e: any) {
+            console.log('GET call failed: ', e);
+        }
         const res = await fetch(`http://localhost:5000/get_products?start=${start}&amount=${amount}`);
         const products = await res.json();
         return products;

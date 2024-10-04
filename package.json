@@ -17,6 +17,7 @@
     "@next/env": "^14.2.6",
     "@stripe/react-stripe-js": "^2.8.0",
     "@stripe/stripe-js": "^4.4.0",
+    "aws-amplify": "^6.6.3",
     "firebase": "^10.13.1",
     "firebase-admin": "^12.4.0",
     "leaflet": "^1.9.4",
