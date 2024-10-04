@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo_icon {
+    min-width: 120px;
+}
+
+.main_content_div {
+    border-left-width: 2px;
+    border-right-width: 2px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.MuiAccordionSummary-root{
+    height: 64px;
+}
+
+.horizontal-scroll-item {
+    flex: 0 0 auto;
+}
+
+.horizontal-scroll {
+    &::-webkit-scrollbar {
+        display: none;
+        }
+}

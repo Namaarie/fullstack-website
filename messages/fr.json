@@ -1,0 +1,11 @@
+{
+    "Navigation": {
+        "Home": "L'accueil",
+        "Products": "Produits",
+        "Support": "Assistance",
+        "Contact": "Nous Joindre"
+    },
+    "Home": {
+        "Home": "home french"
+    }
+}
