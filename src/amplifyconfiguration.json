@@ -1,0 +1,31 @@
+{
+  "aws_project_region": "us-east-1",
+  "aws_cognito_identity_pool_id": "us-east-1:a82a3fe7-5fe3-4508-b6ab-d6ebb4181999",
+  "aws_cognito_region": "us-east-1",
+  "aws_user_pools_id": "us-east-1_FtigZMj8p",
+  "aws_user_pools_web_client_id": "290a6ivju952vpfsi13hetml2a",
+  "oauth": {},
+  "aws_cognito_username_attributes": [],
+  "aws_cognito_social_providers": [],
+  "aws_cognito_signup_attributes": [
+    "EMAIL"
+  ],
+  "aws_cognito_mfa_configuration": "OFF",
+  "aws_cognito_mfa_types": [
+    "SMS"
+  ],
+  "aws_cognito_password_protection_settings": {
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": []
+  },
+  "aws_cognito_verification_mechanisms": [
+    "EMAIL"
+  ],
+  "aws_cloud_logic_custom": [
+    {
+      "name": "api",
+      "endpoint": "https://xfq0utar6e.execute-api.us-east-1.amazonaws.com/dev",
+      "region": "us-east-1"
+    }
+  ]
+}
